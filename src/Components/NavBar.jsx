@@ -17,7 +17,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="home"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-200 p-2 cursor-pointer"
@@ -28,7 +28,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="services"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-200 p-2 cursor-pointer"
@@ -39,7 +39,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="journey"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-200 p-2 cursor-pointer"
@@ -50,7 +50,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="career"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-200 p-2 cursor-pointer"
@@ -61,7 +61,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="about"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-200 p-2 cursor-pointer"
@@ -75,7 +75,7 @@ const NavBar = () => {
             <button>
               <Link
                 to="contact"
-                smooth={true}
+                smooth
                 duration={500}
                 offset={-120}
                 className="py-4 cursor-pointer font-bold px-10 -text--clr-neutral-100 rounded-full -bg--clr-accent-400 hidden md:block hover:-bg--clr-accent-200"
@@ -105,7 +105,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="home"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 py-2 cursor-pointer"
@@ -119,7 +119,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="services"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -133,7 +133,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="journey"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -147,7 +147,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="career"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -161,7 +161,7 @@ const NavBar = () => {
               <li>
                 <Link
                   to="about"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -175,7 +175,7 @@ const NavBar = () => {
               <li>
               <Link
                   to="contact"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="py-4 cursor-pointer mx-auto font-bold px-10 -text--clr-neutral-100 rounded-full -bg--clr-accent-400 hover:-bg--clr-accent-200"

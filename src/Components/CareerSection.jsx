@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { Link } from "react-scroll";
 import image from "../images/hire.png";
+import { useForm } from "react-hook-form";
 
 const CareerSection = () => {
   return (
@@ -21,7 +22,7 @@ const CareerSection = () => {
             </p>
             <Link
               to="careerForm"
-              smooth={true}
+              smooth
               duration={500}
               className="py-4 w-max cursor-pointer font-bold px-10 -text--clr-neutral-100 rounded-full -bg--clr-accent-400 hover:-bg--clr-accent-200"
             >
@@ -43,39 +44,44 @@ const CareerSection = () => {
 export default CareerSection;
 
 const ApplicationForm = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [skills, setSkills] = useState();
-  const [address, setAddress] = useState();
-  const [gender, setGender] = useState();
-  const [role, setRole] = useState();
-  const [resume, setResume] = useState();
-  const [] = useState();
+  const [success, setSuccess] = useState(true);
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const data = [
-    {
-      name: name,
-      email: email,
-      phone: phone,
-      skills: skills,
-      address: address,
-      gender: gender,
-      role: role,
-      resume: resume,
-    },
-  ];
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    alert("Form Submitted");
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const token = import.meta.env.VITE_APP_TOKEN;
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', `Basic ${token}`);
+
+    const res = await fetch(import.meta.env.VITE_APP_CREATE_JOB + '/career/application/apply', {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+
+    if (res.ok) {
+      setSuccess(true);
+    } else {
+      setSuccess(false)
+    }
+    setMessage(json.msg);
+    setLoading(false);
   };
 
   return (
     <>
       <div className="mx-auto px-2 grid md:py-5 md:mx-32" id="careerForm">
         <form
-          onSubmit={submitForm}
+          onSubmit={handleSubmit(onSubmit)}
           className="-bg--clr-accent-100 p-3 md:px-12 [&>div]:my-2 [&_label]:text-2xl [&_label]:my-3 [&_input]:p-3 [&_input]:border [&_input]:-border--clr-neutral-900 [&_input]:indent-2 [&_input]:rounded-lg flex gap-3 flex-col rounded-lg"
         >
           <h1 className="text-3xl font-semibold md:text-5xl text-center my-5">
@@ -85,42 +91,54 @@ const ApplicationForm = () => {
             <label htmlFor="name">Name :</label>
             <input
               type="text"
-              name=""
+              name="name"
               id="name"
               placeholder="Enter Your Full Name"
               className="shadow-sm p-1 -border--clr-neutral-900"
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
+              {...register("name", { required: true })}
+              aria-invalid={errors.name ? "true" : "false"}
             />
+            {errors.name?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                Name is required
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="email">Email :</label>
             <input
               type="email"
-              name=""
+              name="email"
               id="email"
               placeholder="Enter Your Email"
               className="shadow-sm p-1"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              {...register("email", { required: true })}
+              aria-invalid={errors.email ? "true" : "false"}
             />
+            {errors.email?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                Email is required
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="phone">Contact Number :</label>
             <input
               type="text"
-              name=""
-              id="phone"
+              name="mobile"
+              id="moblie"
               placeholder="Mobile Number"
               className="shadow-sm p-1"
-              onChange={(e) => {
-                setPhone(e.target.value);
-              }}
+              {...register("mobile", { required: true })}
+              aria-invalid={errors.mobile ? "true" : "false"}
             />
+            {errors.mobile?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                Contact number is required
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col ">
@@ -131,24 +149,43 @@ const ApplicationForm = () => {
               id="skills"
               placeholder="Your Slills"
               className="shadow-sm p-1"
-              onChange={(e) => {
-                setSkills(e.target.value);
-              }}
+              {...register("skills", { required: true })}
+              aria-invalid={errors.skills ? "true" : "false"}
             />
+            {errors.skills?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                Mention your skills
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col ">
             <label htmlFor="address">Address :</label>
             <input
               type="text"
-              name=""
+              name="address"
               id="address"
               placeholder="Your Current Address"
               className="shadow-sm p-1"
-              onChange={(e) => {
-                setAddress(e.target.value);
-              }}
+              {...register("address", { required: true })}
+              aria-invalid={errors.address ? "true" : "false"}
             />
+            {errors.address?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                Address is required
+              </p>
+            )}
+            <label htmlFor="pin">Address Pin Code :</label>
+            <input
+              type="number"
+              {...register("pin", { required: true })}
+              aria-invalid={errors.address ? "true" : "false"}
+            />
+            {errors.address?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                PIN Code is required
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col md:flex-row ">
@@ -162,11 +199,15 @@ const ApplicationForm = () => {
                   value="male"
                   id="male"
                   className="mr-1"
-                  onChange={(e) => {
-                    setGender(e.target.value);
-                  }}
+                  {...register("gender", { required: true })}
+                  aria-invalid={errors.gender ? "true" : "false"}
                 />
                 <label htmlFor="male">Male</label>
+                {errors.gender?.type === "required" && (
+                  <p className="-text--clr-accent-250" role="alert">
+                    Gender is required
+                  </p>
+                )}
               </div>
               <div className="mx-2">
                 <input
@@ -175,11 +216,15 @@ const ApplicationForm = () => {
                   value="female"
                   id="female"
                   className="mr-1"
-                  onChange={(e) => {
-                    setGender(e.target.value);
-                  }}
+                  {...register("gender", { required: true })}
+                  aria-invalid={errors.gender ? "true" : "false"}
                 />
                 <label htmlFor="female">Female</label>
+                {errors.gender?.type === "required" && (
+                  <p className="-text--clr-accent-250" role="alert">
+                    Gender is required
+                  </p>
+                )}
               </div>
               <div className="mx-2">
                 <input
@@ -188,11 +233,15 @@ const ApplicationForm = () => {
                   value="others"
                   id="others"
                   className="mr-1"
-                  onChange={(e) => {
-                    setGender(e.target.value);
-                  }}
+                  {...register("gender", { required: true })}
+                  aria-invalid={errors.gender ? "true" : "false"}
                 />
                 <label htmlFor="others">Others</label>
+                {errors.gender?.type === "required" && (
+                  <p className="-text--clr-accent-250" role="alert">
+                    Gender is required
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -208,11 +257,15 @@ const ApplicationForm = () => {
                   value="job"
                   id="job"
                   className="mr-1"
-                  onChange={(e) => {
-                    setRole(e.target.value);
-                  }}
+                  {...register("role", { required: true })}
+                  aria-invalid={errors.role ? "true" : "false"}
                 />
                 <label htmlFor="job">Job</label>
+                {errors.role?.type === "required" && (
+                  <p className="-text--clr-accent-250" role="alert">
+                    A role is required
+                  </p>
+                )}
               </div>
               <div className="mx-2">
                 <input
@@ -221,11 +274,15 @@ const ApplicationForm = () => {
                   value="internship"
                   id="internship"
                   className="mr-1"
-                  onChange={(e) => {
-                    setRole(e.target.value);
-                  }}
+                  {...register("role", { required: true })}
+                  aria-invalid={errors.gender ? "true" : "false"}
                 />
                 <label htmlFor="internship">Internship</label>
+                {errors.role?.type === "required" && (
+                  <p className="-text--clr-accent-250" role="alert">
+                    A role is required
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -234,19 +291,25 @@ const ApplicationForm = () => {
             <label htmlFor="name">Resume :</label>
             <input
               type="file"
-              name=""
+              name="cv"
               id="name"
               className="focus:outline-none file:border-0 file:-bg--clr-neutral-100 file:rounded file:-text--clr-neutral-900 focus:-border--clr-neutral-900"
-              onChange={(e) => {
-                setResume(e.target.value);
-              }}
+              {...register("cv", { required: true })}
+              aria-invalid={errors.cv ? "true" : "false"}
             />
+            {errors.cv?.type === "required" && (
+              <p className="-text--clr-accent-250" role="alert">
+                CV / Resume is required
+              </p>
+            )}
           </div>
 
+          <p className={`text-center ${success ? '-text--clr-accent-200':'-text--clr-accent-250'}`}>{message}</p>
           <div className="flex gap-2 justify-center [&>*]:mr-2">
             <button
               type="submit"
-              name=""
+              name="submit"
+              disabled={loading}
               id="name"
               className="py-3 border-none cursor-pointer font-bold px-10 -text--clr-neutral-100 rounded-lg -bg--clr-accent-400 hover:-bg--clr-accent-200"
             >
@@ -254,10 +317,13 @@ const ApplicationForm = () => {
             </button>
             <button
               type="reset"
-              name=""
+              disabled={loading}
+              name="reset"
               id="name"
               className="py-3 border-none cursor-pointer font-bold px-10 -text--clr-neutral-100 rounded-lg -bg--clr-accent-400 hover:-bg--clr-accent-200"
-            >Reset</button>
+            >
+              Reset
+            </button>
           </div>
         </form>
       </div>

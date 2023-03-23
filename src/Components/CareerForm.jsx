@@ -1,43 +1,28 @@
 import React, {useState} from "react";
+const { register, formState: { errors }, handleSubmit } = useForm();
 
-
-const CareerForm = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [skills, setSkills] = useState();
-  const [address, setAddress] = useState();
-  const [gender, setGender] = useState();
-  const [role, setRole] = useState();
-  const [resume, setResume] = useState();
-  const [] = useState();
-
+const CareerForm = () => {  
   const data = [
     {
-      name: name,
-      email: email,
-      phone: phone,
-      skills: skills,
-      address: address,
-      gender: gender,
-      role: role,
-      resume: resume,
+      name,
+      address,
+      pin,
+      email,
+      mobile,
+      skills,
+      gender,
+      cv,
     },
   ];
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    alert("Form Submitted");
-    console.log(data);
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <>
-      <div className="bg-fuchsia-50 pb-5 grid place-items-center">
+      <div className="pb-5 grid place-items-center">
         <form
-          action=" "
-          onSubmit={submitForm}
-          className=" [&>div]:m-2 [&_div]:text-lg w-3/4 md:w-1/2 [&_label]:text-fuchsia-900 [&_label]:font-semi [&_label]:text-lg [&_input]:rounded [&_input]:border-2 [&_input]:border-white [&_input]:outline-none "
+          onSubmit={handleSubmit(onSubmit)}
+          className=" [&>div]:m-2 [&_div]:text-lg w-3/4 md:w-1/2 [&_label]:font-semi [&_label]:text-lg [&_input]:rounded [&_input]:border-2 [&_input]:border-white [&_input]:outline-none "
         >
           <h1 className="text-3xl md:text-5xl text-center my-5 text-fuchsia-700">
             Application

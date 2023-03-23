@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import {
   BsFillTelephoneFill,
   BsFacebook,
@@ -72,7 +72,7 @@ const ContactSection = () => {
               <li>
                 <Link
                   to="home"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 py-2 cursor-pointer"
@@ -83,7 +83,7 @@ const ContactSection = () => {
               <li>
                 <Link
                   to="services"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -94,7 +94,7 @@ const ContactSection = () => {
               <li>
                 <Link
                   to="journey"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -105,7 +105,7 @@ const ContactSection = () => {
               <li>
                 <Link
                   to="career"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -116,7 +116,7 @@ const ContactSection = () => {
               <li>
                 <Link
                   to="about"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"
@@ -127,7 +127,7 @@ const ContactSection = () => {
               <li>
                 <Link
                   to="contact"
-                  smooth={true}
+                  smooth
                   duration={500}
                   offset={-120}
                   className="hover:-text--clr-accent-400 p-2 cursor-pointer"

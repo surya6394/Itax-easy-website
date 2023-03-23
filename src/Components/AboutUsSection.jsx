@@ -31,7 +31,7 @@ const AboutUsSection = () => {
               experience for our customers
             </p>
             <button className="p-4 cursor-pointer max-w-max mx-auto font-bold -text--clr-neutral-100 rounded-lg -bg--clr-accent-400 hover:-bg--clr-accent-200">
-              <Link to={"contact"} smooth={true} duration={500} offset={-120}>
+              <Link to={"contact"} smooth duration={500} offset={-120}>
                 Our Contact
               </Link>
             </button>

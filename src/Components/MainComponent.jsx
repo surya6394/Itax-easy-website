@@ -8,6 +8,7 @@ import JourneySection from "./JourneySection";
 import NavBar from "./NavBar";
 import ServicesCard from "./ServicesCard";
 import SocialContacts from "./SocialContacts";
+import Partners from "./Partners";
 
 const MainComponent = () => {
   return (
@@ -16,6 +17,7 @@ const MainComponent = () => {
         <NavBar />
         <BannerSection />
         <ServicesCard />
+        <Partners />
         <JourneySection />
         <CareerSection />
         <AboutUsSection />
