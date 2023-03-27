@@ -12,7 +12,7 @@ const ContactSection = () => {
   return (
     <>
       <section
-        className="-bg--clr-accent-200 py-10 -text--clr-accent-100 px-10 "
+        className="-bg--clr-neutral-900 py-10 -text--clr-accent-100 px-10 "
         id="contact"
       >
         <div className="grid md:grid-cols-3 justify-center">
@@ -34,33 +34,43 @@ const ContactSection = () => {
                     }
                     rel="noreferrer"
                     target="_blank"
-                    className="hover:bg-green-600"
+                    className="rounded-tr-xl"
+                    onMouseOver={({ target }) => (target.style.color = "green")}
+                    onMouseOut={({ target }) => (target.style.color = "white")}
                   >
-                    <BsWhatsapp />
+                    <BsWhatsapp pointerEvents="none" />
                   </Link>
                   <Link
                     to={"https://www.youtube.com/@itaxeasy1171"}
                     rel="noreferrer"
                     target="_blank"
-                    className="hover:bg-red-600"
+                    onMouseOver={({ target }) => (target.style.color = "red")}
+                    onMouseOut={({ target }) => (target.style.color = "white")}
                   >
-                    <BsYoutube />
+                    <BsYoutube pointerEvents="none" />
                   </Link>
                   <Link
                     to={"https://www.instagram.com/_itax_easy"}
                     rel="noreferrer"
                     target="_blank"
-                    className="hover:bg-pink-600"
+                    onMouseOver={({ target }) =>
+                      (target.style.color = "#DC143C")
+                    }
+                    onMouseOut={({ target }) => (target.style.color = "white")}
                   >
-                    <BsInstagram />
+                    <BsInstagram pointerEvents="none" />
                   </Link>
                   <Link
                     to={"https://www.facebook.com/sonaliitax"}
                     rel="noreferrer"
                     target="_blank"
-                    className="hover:bg-blue-600"
+                    className="rounded-br-xl"
+                    onMouseOver={({ target }) =>
+                      (target.style.color = "#1877f2")
+                    }
+                    onMouseOut={({ target }) => (target.style.color = "white")}
                   >
-                    <BsFacebook />
+                    <BsFacebook pointerEvents="none" />
                   </Link>
                 </div>
               </div>
@@ -75,7 +85,7 @@ const ContactSection = () => {
                   smooth
                   duration={500}
                   offset={-120}
-                  className="hover:-text--clr-accent-400 py-2 cursor-pointer"
+                  className="hover:-text--clr-accent-200 py-2 cursor-pointer"
                 >
                   Home
                 </Link>
@@ -86,7 +96,7 @@ const ContactSection = () => {
                   smooth
                   duration={500}
                   offset={-120}
-                  className="hover:-text--clr-accent-400 p-2 cursor-pointer"
+                  className="hover:-text--clr-accent-200 p-2 cursor-pointer"
                 >
                   Services
                 </Link>
@@ -97,7 +107,7 @@ const ContactSection = () => {
                   smooth
                   duration={500}
                   offset={-120}
-                  className="hover:-text--clr-accent-400 p-2 cursor-pointer"
+                  className="hover:-text--clr-accent-200 p-2 cursor-pointer"
                 >
                   Journey
                 </Link>
@@ -108,7 +118,7 @@ const ContactSection = () => {
                   smooth
                   duration={500}
                   offset={-120}
-                  className="hover:-text--clr-accent-400 p-2 cursor-pointer"
+                  className="hover:-text--clr-accent-200 p-2 cursor-pointer"
                 >
                   Career
                 </Link>
@@ -119,7 +129,7 @@ const ContactSection = () => {
                   smooth
                   duration={500}
                   offset={-120}
-                  className="hover:-text--clr-accent-400 p-2 cursor-pointer"
+                  className="hover:-text--clr-accent-200 p-2 cursor-pointer"
                 >
                   About
                 </Link>
@@ -130,7 +140,7 @@ const ContactSection = () => {
                   smooth
                   duration={500}
                   offset={-120}
-                  className="hover:-text--clr-accent-400 p-2 cursor-pointer"
+                  className="hover:-text--clr-accent-200 p-2 cursor-pointer"
                 >
                   Contact
                 </Link>
@@ -146,7 +156,7 @@ const ContactSection = () => {
                 placeholder="Enter Your Email"
                 className="py-3 px-4 -text--clr-neutral-900 rounded-full indent-3"
               />
-              <button className="mt-8 max-w-max px-4 py-2 rounded-full -bg--clr-primary-400 uppercase bg-fuchsia-700 tracking-tighter">
+              <button className="mt-8 max-w-max px-4 py-2 rounded-full -bg--clr-accent-350 hover:-bg--clr-accent-200 uppercase bg-fuchsia-700 tracking-tighter">
                 Get Started
               </button>
             </div>

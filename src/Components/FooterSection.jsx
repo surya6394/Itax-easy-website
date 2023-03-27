@@ -24,10 +24,10 @@ const FooterSection = () => {
           </a>
         </div>
         <div
-          className="-bg--clr-primary-400 hover:-bg--clr-neutral-900 w-12 h-12 p-2 pt-3 rounded-full fixed bottom-3 group right-4"
+          className="hover:-bg--clr-accent-200 -bg--clr-neutral-900 w-12 h-12 p-2 pt-3 rounded-full fixed bottom-3 group right-4"
           title="Go To Top"
         >
-          <Link to={"home"} smooth={true} duration={500} offset={-120}>
+          <Link to={"home"} smooth duration={500} offset={-120}>
             <BsArrowUp className="group-hover:animate-bounce w-full h-full" />
           </Link>
         </div>

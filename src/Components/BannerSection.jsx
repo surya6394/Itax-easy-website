@@ -16,7 +16,7 @@ const BannerSection = () => {
             </h2>
             <h1 className="md:text-5xl text-4xl font-bold">
               <ReactTypingEffect
-                text={["We make tax easy!", "We make tax easy!"]}
+                text={["We make tax easy", "We make tax easy!"]}
                 speed={30}
                 eraseSpeed={30}
                 typingDelay={1500}
