@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { Link as A } from "react-router-dom";
 import {
   BsFillTelephoneFill,
   BsFacebook,
@@ -28,7 +29,7 @@ const ContactSection = () => {
               <div className="flex flex-col md:flex-row text-2xl gap-4 items-center">
                 <p className="">Follow us at</p>
                 <div className="flex gap-4">
-                  <Link
+                  <A
                     to={
                       "https://api.whatsapp.com/send/?phone=918318520053&text&type=phone_number&app_absent=0"
                     }
@@ -39,8 +40,8 @@ const ContactSection = () => {
                     onMouseOut={({ target }) => (target.style.color = "white")}
                   >
                     <BsWhatsapp pointerEvents="none" />
-                  </Link>
-                  <Link
+                  </A>
+                  <A
                     to={"https://www.youtube.com/@itaxeasy1171"}
                     rel="noreferrer"
                     target="_blank"
@@ -48,8 +49,8 @@ const ContactSection = () => {
                     onMouseOut={({ target }) => (target.style.color = "white")}
                   >
                     <BsYoutube pointerEvents="none" />
-                  </Link>
-                  <Link
+                  </A>
+                  <A
                     to={"https://www.instagram.com/_itax_easy"}
                     rel="noreferrer"
                     target="_blank"
@@ -59,8 +60,8 @@ const ContactSection = () => {
                     onMouseOut={({ target }) => (target.style.color = "white")}
                   >
                     <BsInstagram pointerEvents="none" />
-                  </Link>
-                  <Link
+                  </A>
+                  <A
                     to={"https://www.facebook.com/sonaliitax"}
                     rel="noreferrer"
                     target="_blank"
@@ -71,7 +72,7 @@ const ContactSection = () => {
                     onMouseOut={({ target }) => (target.style.color = "white")}
                   >
                     <BsFacebook pointerEvents="none" />
-                  </Link>
+                  </A>
                 </div>
               </div>
             </div>
