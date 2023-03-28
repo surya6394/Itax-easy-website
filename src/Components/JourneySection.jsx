@@ -18,8 +18,8 @@ const JourneyCardData = [
   },
   {
     year: "2021",
-    title: "The Beginning",
-    text: "The founder develops an idea, registers the company with the government, obtains the necessary legal documents and licenses, and obtains any necessary approvals or clearances from both state and central government agencies.",
+    title: "Offering Loan",
+    text: "Itaxeasy Private Limited has obtained a license to offer loans across India in 2021.It's important to note that partnerships and licensing agreements often come with specific terms and conditions, and it's important for customers to carefully review the terms and understand any associated fees or risks before engaging with any financial products or services.",
   },
   {
     year: "2022",
