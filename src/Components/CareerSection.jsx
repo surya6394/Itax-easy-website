@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-scroll";
 import image from "../images/hire.png";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+
 
 const CareerSection = () => {
   return (
@@ -55,31 +57,58 @@ const ApplicationForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    let maxlimit = 102400;
     console.log(data);
-    setLoading(true);
-    const token = import.meta.env.VITE_APP_TOKEN;
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Basic ${token}`);
+    const file = data.cv[0];
 
-    const res = await fetch(
-      import.meta.env.VITE_APP_CREATE_JOB + "/career/application/apply",
-      {
-        method: "POST",
-        headers: myHeaders,
-        body: JSON.stringify(data),
+    let size = file.size;
+    let type = file.type;
+
+      if (!file) {
+        throw new Error('Resume is required.');
       }
-    );
-    const json = await res.json();
+      
+      if (size > maxlimit && type !== "application/pdf") {
+        throw new Error('Only Pdf File Accetped and Should be less than 100 kb.');
+      }
+      
+      setLoading(true);
+      const formData = new FormData();
 
-    if (res.ok) {
-      setSuccess(true);
-    } else {
-      setSuccess(false);
-    }
+      formData.append('name', data.name);
+      formData.append('skills', data.skills);
+      formData.append('gender', data.gender);
+      formData.append('email', data.email);
+      formData.append('pin', data.pin);
+      formData.append('address', data.address);
+      formData.append('mobile', data.mobile);
+      formData.append('cv', data.cv[0]);
+
+      console.log(formData);
+      
+      const token = import.meta.env.VITE_APP_TOKEN;
+      const myHeaders = new Headers();
+      myHeaders.append("Authorization", `${token}`);
+      
+      const res = await fetch(
+        import.meta.env.VITE_APP_CREATE_JOB + "/career/application/apply",
+        {
+          method: "POST",
+          headers: myHeaders,
+          body: formData,
+        }
+      );
+      const json = await res.json();
+
+    if (!res.ok) {
+        throw new Error('Could not submit form. Please try again.');
+      }
+      toast('Form Submitted Succefully', {
+        type: 'success'
+      });
     setMessage(json.msg);
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   return (
     <>
