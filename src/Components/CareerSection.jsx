@@ -48,7 +48,7 @@ export default CareerSection;
 const ApplicationForm = () => {
   const [success, setSuccess] = useState(true);
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -57,8 +57,8 @@ const ApplicationForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+
     let maxlimit = 102400;
-    console.log(data);
     const file = data.cv[0];
 
     let size = file.size;
@@ -71,12 +71,13 @@ const ApplicationForm = () => {
       if (size > maxlimit && type !== "application/pdf") {
         throw new Error('Only Pdf File Accetped and Should be less than 100 kb.');
       }
-      
-      setLoading(true);
-      const formData = new FormData();
-
-      formData.append('name', data.name);
-      formData.append('skills', data.skills);
+    setSuccess(false);
+    setMessage('')
+    setLoading(true);
+    const formData = new FormData();
+    
+    formData.append('name', data.name);
+    formData.append('skills', data.skills);
       formData.append('gender', data.gender);
       formData.append('email', data.email);
       formData.append('pin', data.pin);
@@ -88,7 +89,7 @@ const ApplicationForm = () => {
       
       const token = import.meta.env.VITE_APP_TOKEN;
       const myHeaders = new Headers();
-      myHeaders.append("Authorization", `${token}`);
+      myHeaders.append("Authorization", token);
       
       const res = await fetch(
         import.meta.env.VITE_APP_CREATE_JOB + "/career/application/apply",
@@ -99,10 +100,12 @@ const ApplicationForm = () => {
         }
       );
       const json = await res.json();
-
+      console.log(json);
     if (!res.ok) {
-        throw new Error('Could not submit form. Please try again.');
-      }
+      setSuccess(false);
+    } else {
+      setSuccess(true);
+    }
       toast('Form Submitted Succefully', {
         type: 'success'
       });
@@ -189,7 +192,7 @@ const ApplicationForm = () => {
             )}
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex gap-3 justify-between">
             <div className="w-2/4">
               <input
                 type="text"
@@ -290,24 +293,18 @@ const ApplicationForm = () => {
             </div>
           </div>
 
-          <p
-            className={`text-center ${
-              success ? "-text--clr-accent-200" : "-text--clr-accent-250"
-            }`}
-          >
-            {message}
-          </p>
           <div className="flex gap-2 justify-center [&>*]:mr-2">
           </div>
             <button
               type="submit"
-              name="submit"
+            name="submit"
+            disabled={loading}
               id="submit"
               className="py-3 border-none cursor-pointer font-bold px-10 -text--clr-neutral-900 rounded-lg -bg--clr-neutral-100"
-            >
-              Submit
-            </button>
-            <button
+          >
+            {loading ? (<span className="inline-block w-5 h-5 border-2 border-t-2 border-l-2 border-b-0 border-r-0 rounded-full animate-spin"></span>): 'Submit'}
+          </button>
+          <button
               type="reset"
               form="formName"
               name="reset"
@@ -316,6 +313,12 @@ const ApplicationForm = () => {
             >
               Reset
             </button>
+          {message && <p
+            className={`text-center font-bold mt-2 ${success ? "-text--clr-accent-150" : "-text--clr-accent-250"
+              }`}
+          >
+            {message}.
+          </p>}
         </form>
 
         <div className="flex justify-center shadow-xl">
