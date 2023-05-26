@@ -272,16 +272,16 @@ const ApplicationForm = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-3">
             <div>
               <label htmlFor="name">Resume :</label>
             </div>
-            <div>
+            <div >
               <input
                 type="file"
                 name="cv"
                 id="name"
-                className="focus:outline-none bg-gradient-to-r -from--clr-accent-400 -to--clr-primary-400 -text--clr-neutral-100 file:border-0 file:-bg--clr-neutral-100 file:rounded file:-text--clr-neutral-900 focus:-border--clr-neutral-900"
+                className="focus:outline-none sm:w-40 bg-gradient-to-r -from--clr-accent-400 -to--clr-primary-400 -text--clr-neutral-100 file:border-0 file:-bg--clr-neutral-100 file:rounded file:-text--clr-neutral-900 focus:-border--clr-neutral-900"
                 {...register("cv", { required: true })}
                 aria-invalid={errors.cv ? "true" : "false"}
               />

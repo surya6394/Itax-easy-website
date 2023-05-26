@@ -59,7 +59,7 @@ const ServicesCard = () => {
           <h1 className="text-3xl md:text-5xl text-center font-bold mb-12">
             Our Services
           </h1>
-          <div className="grid md:grid-cols-3 px-5 gap-12">
+          <div className="grid md:grid-cols-2 px-5 gap-12">
             {cardData.map((data, index) => (
               <Card
                 key={index}
