@@ -78,7 +78,7 @@ const NavBar = () => {
                 smooth
                 duration={500}
                 offset={-120}
-                className="py-4 mr-4 ml-4 cursor-pointer font-bold px-10 -text--clr-neutral-100 rounded-full -bg--clr-accent-400 hidden md:block hover:-bg--clr-accent-200"
+                className="py-4 sm:mr-4 sm:ml-3 cursor-pointer font-bold px-10 -text--clr-neutral-100 rounded-full -bg--clr-accent-400 hidden md:block hover:-bg--clr-accent-200"
               >
                 Contact
               </Link>

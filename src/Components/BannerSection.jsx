@@ -8,7 +8,7 @@ const BannerSection = () => {
 
   return (
     <>
-      <section className="min-h-[75vh] flex items-center" id="home">
+      <section className="min-h-[75vh] flex sm:m-5 sm:min-h-[50vh] items-center" id="home">
         <div className="grid gap-4 md:grid-cols-2">
           <div className="flex gap-6 py-6 md:items-start items-center flex-col ">
             <h2 className="text-4xl font-bold">
