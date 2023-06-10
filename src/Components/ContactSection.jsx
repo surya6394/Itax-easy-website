@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-scroll";
-import { Link as A } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Link as A } from "react-scroll";
 import {
   BsFillTelephoneFill,
   BsFacebook,
@@ -144,6 +144,17 @@ const ContactSection = () => {
                   className="hover:-text--clr-accent-200 p-2 cursor-pointer"
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/login"
+                  smooth
+                  duration={500}
+                  offset={-120}
+                  className="hover:-text--clr-accent-200 p-2 cursor-pointer"
+                >
+                  Admin Login
                 </Link>
               </li>
             </ul>

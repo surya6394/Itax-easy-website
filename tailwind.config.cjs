@@ -15,7 +15,9 @@ module.exports = {
       "--clr-neutral-400": "hsl(227, 12%, 61%)",
       "--clr-neutral-900": "hsl(233, 12%, 13%)",
     },
-    extend: {},
+    extend: {
+      
+    },
   },
   plugins: [],
 };
