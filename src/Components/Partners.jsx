@@ -12,7 +12,7 @@ const Partners = () => {
   return (
     <section className="mt-28 py-10">
       <h2 className="text-3xl font-bold md:text-5xl text-center">Become Our Partner</h2>
-      <div className="grid gap-10 px-2 md:grid-cols-3 grid-cols-2 my-24 justify-around">
+      <div className="grid gap-10 px-2 sm:grid-cols-6 grid-cols-2 my-24 justify-around">
         {logos.map((link, i) => (
           <div key={i} className='flex justify-center items-center'>
                 <img src={link} className='w-32 object-cover' alt="partner-logo" />

@@ -1,17 +1,16 @@
 import React from "react";
 import { BsArrowUp } from "react-icons/bs";
 import { Link } from "react-scroll";
-import logo from "../images/logo.png";
+import ContactSection from "./ContactSection";
+import SocialContacts from "./SocialContacts";
 
 const FooterSection = () => {
   return (
-    <>
-      <section className="-bg--clr-primary-400 p-4 -text--clr-neutral-100">
+    <>  
+      <section className="-bg--clr-primary-400 p-4 font-serif -text--clr-neutral-100">
         <div className="flex flex-col text-xl gap-4 items-center p-4">
-          <img src={logo} alt="" className="w-28" />
-          <p className="text-center px-1">
-            "Efficiently file your GST and ITR - stay compliant, stay
-            stress-free."
+          <p className="text-center px-1 text-2xl font-bold ">
+            "Transforming Visions into Reality. Explore our solutions today."
           </p>
         </div>
         <div className="text-center [&>*]:my-2">
