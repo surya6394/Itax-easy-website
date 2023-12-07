@@ -6,7 +6,7 @@ import SocialContacts from "./SocialContacts";
 
 const FooterSection = () => {
   return (
-    <>  
+    <>
       <section className="-bg--clr-primary-400 p-4 font-serif -text--clr-neutral-100">
         <div className="flex flex-col text-xl gap-4 items-center p-4">
           <p className="text-center px-1 text-2xl font-bold ">
