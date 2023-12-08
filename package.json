@@ -1,13 +1,17 @@
 {
+  "homepage": "https://surya6394.github.io/Itax-easy-website",
   "name": "companyprofile",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "deploy-gh-pages": "gh-pages -d build",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
